@@ -3,7 +3,8 @@
 section .text
 global CMAIN
 CMAIN:
-    mov rbp, rsp; for correct debugging 
+    mov rbp, rsp; for correct debugging
+    mov ebp, esp; for correct debugging
     
     ; 메모를 남길 수 있는 기능 = 주석
     
@@ -34,10 +35,15 @@ CMAIN:
     mov cl, 0xff
     
     mov al, 0x00
-    mov rax, rdx
     
-    ; 메모리 <-> 레지스터   
-       
+    ; 메모리 <-> 레지스터
+    ; mov rax, a ; a 라는 주소값을 rax 에 복사
+    ; mov rax, [a] ; a 라는 바구니 안에 있는 값을 rax 에다 복사
+    mov al, [a]
+    
+    mov [a], byte 0x55
+    mov [a], word 0x6666
+    mov [a], cl
       
     xor rax, rax
     ret
