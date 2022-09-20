@@ -5,6 +5,55 @@ global CMAIN
 CMAIN:
     mov rbp, rsp; for correct debugging
     
+    ; 스택 메모리, 스택 프레임
+    
+    
+    ; 함수 (프로시저 procedure 서브루틴 subroutine)
+    
+    ;call PRINT_MSG
+    
+    ;mov eax, 10
+    ;mov ebx, 15
+    ;call MAX
+    ;PRINT_DEC 4, ecx
+    ;NEWLINE
+    
+    ; 배열과 주소
+    
+    ; 배열 : 동일한 타입의 데이터 묶음
+    ; - 배열을 구성하는 각 값을 배열 요쇼(element)라고 함
+    ; - 배열의 위치리르 가리키는 숫자를 인덱스(index)라고 함
+    
+    ; 주소
+    ; [시작 주소 + 인덱스 * 크기]
+    
+    ;mov rax, a
+    
+    ; 연습문제 : a배열의 모든 데이터 출력해보기
+    ;PRINT_HEX 1, [a]
+    ;NEWLINE
+    ;PRINT_HEX 1, [a+1]
+    ;NEWLINE
+    ;PRINT_HEX 1, [a+2]
+    ;NEWLINE
+    
+    ;xor ecx, ecx
+;LABEL_PRINT_A:
+    ;PRINT_HEX 1, [a+ecx]
+    ;NEWLINE
+    ;inc ecx ;add ecx, 1
+    ;cmp ecx, 5
+    ;jne LABEL_PRINT_A
+    
+    ;xor ecx, ecx
+    
+;LABEL_PRINT_B:
+    ;PRINT_HEX 2, [b+ecx*2]
+    ;NEWLINE
+    ;inc ecx
+    ;cmp ecx, 5
+    ;jne LABEL_PRINT_B
+    
     ; 반복문 (while for)
     ; 특정 조건을 만족할때까지 반복해서 실행~
     
@@ -20,34 +69,34 @@ CMAIN:
     ;jne LABEL_LOOP
     
     ; 연습 문제) 1에서 100까지의 합을 구하는 프로그램 1+2+3+4....+100 = ?
-    mov eax, 100 ; 최종 목적지
-    xor ebx, ebx ; mov ebx, 0 ebx: 결과물
-    xor ecx, ecx
+    ;mov eax, 100 ; 최종 목적지
+    ;xor ebx, ebx ; mov ebx, 0 ebx: 결과물
+    ;xor ecx, ecx
     
-LABEL_SUM:
-    ;inc ecx ; add ecx, 1과 동일
-    ;add ebx, ecx ; ebx = ebx + ecx
-    add ebx, eax
-    dec eax
-    ;cmp ecx, eax
-    cmp eax, 0
-    jne LABEL_SUM
+;LABEL_SUM:
+    ;;inc ecx ; add ecx, 1과 동일
+    ;;add ebx, ecx ; ebx = ebx + ecx
+    ;add ebx, eax
+    ;dec eax
+    ;;cmp ecx, eax
+    ;cmp eax, 0
+    ;jne LABEL_SUM
     
-    PRINT_DEC 4, ebx
-    NEWLINE
+    ;PRINT_DEC 4, ebx
+    ;NEWLINE
     
     ; loop [라벨]
     ; - ecx에 반복 횟수
     ; - loop 할때마다 ecx 1 감소 0이면 빠져나감. 아니면 라벨로 이동
     
-    mov ecx, 100
-    xor ebx, ebx ; mov ebx, 0 ebx: 결과물
-LABEL_LOOP_SUM:
-    add ebx, ecx
-    loop LABEL_LOOP_SUM
+    ;mov ecx, 100
+    ;xor ebx, ebx ; mov ebx, 0 ebx: 결과물
+;LABEL_LOOP_SUM:
+    ;add ebx, ecx
+    ;loop LABEL_LOOP_SUM
     
-    PRINT_DEC 4, ebx
-    NEWLINE
+    ;PRINT_DEC 4, ebx
+    ;NEWLINE
     
     ; 분기문 (if)
     ; 특정 조건에 따라서 코드 흐름을 제어하는 것
@@ -274,6 +323,43 @@ LABEL_LOOP_SUM:
     xor rax, rax
     ret
     
+;PRINT_MSG:
+    ;PRINT_STRING msg
+    ;NEWLINE
+    ;ret
+    
+; ex) 두 값중 더 큰 값을 반환하는 max
+; 근데 2값을 어떻게 남겨받지? 반환 어떻게?
+; eax와 ebx 입력값을 ecx에 반환
+;MAX:
+    ;call PRINT_MSG
+    
+    ;cmp eax, ebx
+    ;jg L1
+    ;mov ecx, ebx
+    ;jmp L2
+    
+;L1:
+    ;mov ecx, eax
+    
+;L2:
+    ;ret
+
+    ; 그런데 인자가 10개라면 어떻게 할까? a b c d
+    ; eax, ebx에 이미 중요한 값이 있으면 어떻게 할까?
+    ; [!] .data .bss 사용하면?
+    ; 인자를 도대체 몇개를 할당해야 하지?
+    
+    ; 다른 메모리 구조가 필요하다
+    ; - 꿈이 유효한 동안에는 그 꿈을 유지시켜야 함 (유효 범위의 개념이 있다)
+    ; - 꿈이 끝나면 그 꿈을 부셔버려도 됨 (정리의 개념이 있다)
+    ; - 꿈에서도 또 꿈을 꿀 수 있다는 것을 고려해야 함 (유동적으로 유효 범위가 확장 가능)
+    
+    ; [!] 스택(stack)이라는 메모리 영역을 사용
+    ; 함수가 사용하는 일종의 메모장
+    ; - 매개 변수 전달
+    ; - 돌아갈 주소 관리
+
     ; 변수의 선언 및 사용
     ; 변수는 그냥 데이터를 저장하는 바구니 [ ]
     ; - 처음에 바구니 사용하겠다 선언 (이름과 크기 지정)
@@ -283,6 +369,14 @@ LABEL_LOOP_SUM:
     ; [크기] db(1) dw(2) dd(4) dq(8)
 section .data
     msg db 0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x0
+    dd a 0
+    dd b 0
+    dd c 0
+    
+    ;a db 0x01, 0x02, 0x03, 0x04, 0x05 ; 5 * 1 = 5바이트
+
+    ; 0x0001
+    ;b times 5 dw 1 ; 5 * 2 = 10바이트
     
     ;a db 0x11, 0x11, 0x11, 0x11   ; [0x11]
     
@@ -299,4 +393,4 @@ section .data
     ; [변수이름] [크기] [개수]
     ; [크기] resb(1) resw(2) resd(4) resq(8)
 section .bss
-    num resb 1
+    num resb 10
