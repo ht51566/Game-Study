@@ -7,6 +7,20 @@ CMAIN:
     
     ; 스택 메모리, 스택 프레임
     
+    ; 레지스터는 다양한 용도로 사용
+    ; - a b c d 범용 레지스터
+    ; - 포인터 레지스터 (포인터 = 위치를 가리키는~)
+    ; -- ip (Instruction Pointer) : 다음 수행 명령어의 위치
+    ; -- sp (Stack Pointer) : 현재 스택 top 위치 (일종의 cursor)
+    ; -- bp (Base Pointer) : 스택 상대주소 계산용
+    
+    push 1
+    push 2
+    push 3
+    
+    pop rax
+    pop rbx
+    pop rcx
     
     ; 함수 (프로시저 procedure 서브루틴 subroutine)
     
@@ -369,9 +383,6 @@ CMAIN:
     ; [크기] db(1) dw(2) dd(4) dq(8)
 section .data
     msg db 0x48,0x65,0x6c,0x6c,0x6f,0x20,0x57,0x6f,0x72,0x6c,0x64,0x0
-    dd a 0
-    dd b 0
-    dd c 0
     
     ;a db 0x01, 0x02, 0x03, 0x04, 0x05 ; 5 * 1 = 5바이트
 
