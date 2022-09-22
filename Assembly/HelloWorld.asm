@@ -337,6 +337,20 @@ CMAIN:
     xor rax, rax
     ret
     
+MAX:
+    push rbp
+    mov rbp, rsp
+    
+    mov rax, [rbp+16]
+    mov rbx, [rbp+24]
+    cmp rax, rbx
+    jg L1
+    mov rax, rbx
+    
+L1:   
+    pop rbp
+    ret
+    
 ;PRINT_MSG:
     ;PRINT_STRING msg
     ;NEWLINE
