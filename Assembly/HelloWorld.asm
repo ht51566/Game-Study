@@ -14,13 +14,16 @@ CMAIN:
     ; -- sp (Stack Pointer) : 현재 스택 top 위치 (일종의 cursor)
     ; -- bp (Base Pointer) : 스택 상대주소 계산용
     
-    push 1
+    push rax
+    push rbx
+    push 5
     push 2
-    push 3
-    
-    pop rax
+    call MAX
+    PRINT_DEC 8, rax
+    NEWLINE
+    add rsp, 16
     pop rbx
-    pop rcx
+    pop rax
     
     ; 함수 (프로시저 procedure 서브루틴 subroutine)
     
