@@ -2,13 +2,32 @@
 
 using namespace std;
 
+// 상수인건 알겠는데 너무 따로 따로 노는 느낌
+// 하나의 셋트인데?
+const int SCISSORS = 1;
+const int ROCK = 2;
+const int PAPER = 3;
+
+// 숫자를 지정 안하면 첫 값은 0부터 시작
+// 그 다음 값들은 이전 값 + 1
+enum ENUM_SRP
+{
+	ENUM_SCISSORS = 1,
+	ENUM_ROCK,
+	ENUM_PAPER
+};
+
+// #이 붙은거 -> 전처리 지시문
+// #include <iostream>이라는 파일을 찾아서 해당 내용을 그냥 복붙!
+// 1) 전처리 2) 컴파일 3) 링크
+#define DEFINE_SCISSORS (1+2)
+#define DEFINE_TEST cout << "Hello World" << endl;
+
 int main()
 {
-	srand(time(0)); // 시드 설정
+	int value = ENUM_ROCK;
 
-	const int SCISSORS = 1;
-	const int ROCK = 2;
-	const int PAPER = 3;
+	srand(time(0)); // 시드 설정
 
 	int wins = 0;
 	int total = 0;
@@ -37,7 +56,7 @@ int main()
 		int input;
 		cin >> input;
 
-		if (input == SCISSORS)
+		if (input == ENUM_SCISSORS)
 		{
 			switch (computerValue)
 			{
