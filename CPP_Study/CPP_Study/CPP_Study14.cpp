@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+// ø¿¥√¿« ¡÷¡¶ : TextRPG
+
+
+
+int main()
+{
+	
+
+	return 0;
+}

@@ -1,2 +1,4 @@
-﻿  CPP_Study10.cpp
-  CPP_Study.vcxproj -> C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\Debug\CPP_Study.exe
+﻿  CPP_Study13.cpp
+D:\Works\Rookiss\Game-Study\CPP_Study\CPP_Study\CPP_Study13.cpp(18,15): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Works\Rookiss\Game-Study\CPP_Study\CPP_Study\CPP_Study13.cpp(19,9): warning C4244: 'return': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CPP_Study.vcxproj -> D:\Works\Rookiss\Game-Study\CPP_Study\Debug\CPP_Study.exe
