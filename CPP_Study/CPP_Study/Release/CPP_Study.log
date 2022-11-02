@@ -1,0 +1,6 @@
+﻿  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\CPP_Study\CPP_Study24.cpp(18): warning C4172: 지역 변수 또는 임시: a의 주소를 반환하고 있습니다.
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  CPP_Study.vcxproj -> C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\Release\CPP_Study.exe

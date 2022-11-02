@@ -1,2 +1,4 @@
-﻿  CPP_Study23.cpp
+﻿  CPP_Study24.cpp
+C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\CPP_Study\CPP_Study24.cpp(12): warning C4172: 지역 변수 또는 임시: a의 주소를 반환하고 있습니다.
+C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\CPP_Study\CPP_Study24.cpp(18): warning C4172: 지역 변수 또는 임시: a의 주소를 반환하고 있습니다.
   CPP_Study.vcxproj -> C:\Users\4-002\Documents\임호권\Game-Study\CPP_Study\Debug\CPP_Study.exe

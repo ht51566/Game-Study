@@ -84,5 +84,8 @@
     <ClCompile Include="CPP_Study23.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CPP_Study24.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
